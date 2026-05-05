@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>VenancIA · Presentación navegable</title>
+<style>
+:root{--bg:#09111f;--panel:#101a2f;--panel2:#15233f;--text:#edf2ff;--muted:#9eb0d0;--accent:#71a7ff;--accent2:#7ee0c3;--line:rgba(255,255,255,.09)}
+*{box-sizing:border-box} body{margin:0;font-family:Inter,Segoe UI,Arial,sans-serif;background:radial-gradient(circle at top,#172548,#09111f 55%);color:var(--text);scroll-behavior:smooth}
+header{position:sticky;top:0;z-index:20;background:rgba(9,17,31,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{max-width:1200px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:14px 20px;gap:14px;flex-wrap:wrap}
+.brand{font-weight:700;letter-spacing:.3px}.tabs{display:flex;gap:8px;flex-wrap:wrap}.tabs a{color:var(--text);text-decoration:none;padding:8px 12px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.03);font-size:14px}
+.tabs a:hover{border-color:rgba(113,167,255,.55);background:rgba(113,167,255,.12)}
+main{max-width:1200px;margin:auto;padding:28px 20px 80px}
+section{min-height:84vh;display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:stretch;padding:18px 0;border-bottom:1px solid var(--line)}
+.panel{background:linear-gradient(180deg,var(--panel),var(--panel2));border:1px solid var(--line);border-radius:28px;padding:28px;box-shadow:0 16px 50px rgba(0,0,0,.24)}
+.badge{display:inline-block;padding:7px 12px;border-radius:999px;border:1px solid var(--line);color:var(--muted);font-size:13px;background:rgba(255,255,255,.03)}
+h1{font-size:52px;line-height:1.02;margin:14px 0 10px} h2{font-size:34px;margin:6px 0 16px} h3{font-size:22px;margin:16px 0 10px;color:#d8e4ff} p,li{font-size:20px;line-height:1.52;color:var(--text)} ul{margin:10px 0 0 22px;padding:0}
+.small{font-size:15px;color:var(--muted)}.lead{font-size:22px;color:#dfe7ff}
+.kpi{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}.kpi div{background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:18px;padding:14px}.kpi b{display:block;font-size:14px;color:var(--muted);margin-bottom:8px}.kpi span{font-size:18px}
+.card{background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:20px;padding:18px;margin-top:14px}
+.flow{font-family:Consolas,monospace;font-size:16px;white-space:pre-wrap;color:#dce7ff;line-height:1.42}
+.steps{display:grid;gap:10px}.step{display:flex;gap:12px;align-items:flex-start;padding:14px;border-radius:16px;background:rgba(255,255,255,.04);border:1px solid var(--line)}.num{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#07111f;font-weight:700;flex:0 0 auto}
+.footer{position:fixed;right:18px;bottom:14px;color:var(--muted);font-size:12px}
+hr{border:none;border-top:1px solid var(--line);margin:18px 0}
+@media (max-width:980px){section{grid-template-columns:1fr;min-height:auto}.kpi{grid-template-columns:1fr}h1{font-size:40px}.nav{justify-content:center}.tabs{justify-content:center}}
+</style>
+</head>
+<body>
+<header>
+  <div class="nav">
+    <div class="brand">VenancIA · Exposición TFG</div>
+    <div class="tabs">
+      <a href="#intro">1. Contexto</a>
+      <a href="#conceptos">2. Conceptos</a>
+      <a href="#flujo">3. Flujo</a>
+      <a href="#cambio">4. Evolución</a>
+      <a href="#futuro">5. Futuro</a>
+      <a href="#cierre">6. Cierre</a>
+    </div>
+  </div>
+</header>
+<main>
+<section id="intro">
+  <div class="panel">
+    <span class="badge">1 · Contexto</span>
+    <h1>Un asistente inteligente local para el centro</h1>
+    <p class="lead">Este TFG busca responder preguntas sobre el instituto usando información real del propio centro, de forma privada, local y fácil de mantener.</p>
+    <p class="small">La demo se apoya en una versión estable y funcional. La idea más ambiciosa del proyecto sigue existiendo, pero para la exposición enseñaremos la variante más segura y demostrable.</p>
+    <div class="kpi">
+      <div><b>Objetivo</b><span>Responder sobre el centro</span></div>
+      <div><b>Nombre comercial</b><span>VenancIA</span></div>
+      <div><b>Estado</b><span>Demo lista</span></div>
+    </div>
+  </div>
+  <div class="panel">
+    <h2>Qué problema resuelve</h2>
+    <p>Muchas preguntas del centro se repiten: horarios, contacto, procesos, información básica… La idea es que el sistema encuentre la respuesta en la documentación interna y la devuelva de forma clara.</p>
+    <div class="card">
+      <h3>Idea principal</h3>
+      <p>El usuario pregunta, el sistema busca información relevante y luego genera una respuesta en lenguaje natural.</p>
+    </div>
+  </div>
+</section>
+<section id="conceptos">
+  <div class="panel">
+    <span class="badge">2 · Conceptos básicos</span>
+    <h2>RAG, n8n y Qdrant</h2>
+    <p><b>RAG</b> significa <i>Retrieval-Augmented Generation</i>, es decir, generación aumentada con recuperación. Primero se busca información útil y después se genera la respuesta con ese contexto.</p>
+    <p><b>n8n</b> es la herramienta que conecta pasos y servicios. <b>Qdrant</b> es la base vectorial donde se guarda el conocimiento para poder buscar por significado.</p>
+    <p><b>Stack</b> es el conjunto de tecnologías que forman la solución completa: n8n, Qdrant, Ollama y FastAPI.</p>
+  </div>
+  <div class="panel">
+    <h2>Analogía rápida</h2>
+    <div class="card">
+      <p>Imaginemos una biblioteca:</p>
+      <ul>
+        <li>n8n sería el bibliotecario que coordina todo.</li>
+        <li>Qdrant sería el archivo donde están los libros organizados por significado.</li>
+        <li>RAG sería la forma de buscar primero el libro correcto y luego contestar con su contenido.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <p>Otros conceptos, como webhook, Vector Store, retriever... se explicarán en detalle durante la demo.</p>
+    </div>
+  </div>
+</section>
+<section id="flujo">
+  <div class="panel">
+    <span class="badge">3 · Cómo funciona</span>
+    <h2>Flujo actual de la demo</h2>
+    <div class="flow">Usuario
+  ↓
+Webhook de n8n
+  ↓
+FastAPI /chat
+  ↓
+Qdrant + Ollama
+  ↓
+Respuesta al usuario</div>
+    <hr>
+    <p>En esta versión, n8n recibe la petición, la envía al backend (desarrollado en FastAPI) y devuelve el resultado. FastAPI hace el trabajo de consulta y generación, mientras Qdrant aporta el contexto relevante y Ollama redacta la respuesta final.</p>
+  </div>
+  <div class="panel">
+    <h2>Qué enseñaré en vivo</h2>
+    <div class="steps">
+      <div class="step"><div class="num">1</div><div><b>Entrada</b><br>Escribiré una pregunta de ejemplo.</div></div>
+      <div class="step"><div class="num">2</div><div><b>Recepción</b><br>n8n capturará la consulta por webhook.</div></div>
+      <div class="step"><div class="num">3</div><div><b>Recuperación</b><br>Qdrant devolverá fragmentos relevantes.</div></div>
+      <div class="step"><div class="num">4</div><div><b>Respuesta</b><br>El sistema mostrará la respuesta final.</div></div>
+    </div>
+  </div>
+</section>
+<section id="cambio">
+  <div class="panel">
+    <span class="badge">4 · Evolución</span>
+    <h2>Del workflow complejo al estable</h2>
+    <p>La primera idea era hacer todo dentro de n8n con un agente y varias herramientas IA. Eso era más ambicioso, pero también más frágil y difícil de controlar para la demo.</p>
+    <p>Por eso ahora se muestra una versión simple y estable, que es la que mejor permite explicar el proyecto sin errores ni dependencias innecesarias.</p>
+  </div>
+  <div class="panel">
+    <h2>Qué significa este cambio</h2>
+    <div class="card">
+      <ul>
+        <li>No es un retroceso, sino una decisión práctica para enseñar el proyecto bien a día de hoy.</li>
+        <li>La versión compleja queda como evolución posible y como entrega final del proyecto.</li>
+        <li>La solución estable permite centrarse en lo importante: el flujo, la idea y el valor real.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+<section id="futuro">
+  <div class="panel">
+    <span class="badge">5 · Futuro</span>
+    <h2>Perspectivas futuras</h2>
+    <p>Más adelante se volverá a la idea del workflow más complejo y se podría además añadir memoria persistente, recoger feedback de usuarios y estudiar un comportamiento más “inteligente” del asistente.</p>
+    <p>También podría incorporarse una capa de aprendizaje operativo, donde el sistema recuerde mejor qué respuestas fueron útiles y cuáles no.</p>
+  </div>
+  <div class="panel">
+    <h2>Qué sí y qué no</h2>
+    <div class="card">
+      <p>Hoy se enseña una solución funcional.</p>
+      <p>El futuro deja abierta la puerta a:</p>
+      <ul>
+        <li>feedback de usuario,</li>
+        <li>memoria persistente,</li>
+        <li>más herramientas IA,</li>
+        <li>volver al enfoque de agente.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+<section id="cierre">
+  <div class="panel">
+    <span class="badge">6 · Cierre</span>
+    <h2>Resumen final</h2>
+    <p>El proyecto ya demuestra la idea principal: responder consultas sobre el centro con ayuda de información real y una arquitectura local. La demo explica bien ese valor y deja claro por dónde puede crecer después.</p>
+  </div>
+  <div class="panel">
+    <div class="card">
+      <p><b>VenancIA</b> combina automatización, búsqueda semántica y generación de texto para responder de forma útil sobre la información del centro.</p>
+    </div>
+  </div>
+</section>
+</main>
+<div class="footer">Proyecto VenancIA · Elena González Plaza</div>
+</body>
+</html>
