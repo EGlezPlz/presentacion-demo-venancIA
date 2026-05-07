@@ -20,16 +20,12 @@ h1{font-size:52px;line-height:1.02;margin:14px 0 10px} h2{font-size:34px;margin:
 .small{font-size:15px;color:var(--muted)}.lead{font-size:22px;color:#dfe7ff}
 .kpi{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}.kpi div{background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:18px;padding:14px}.kpi b{display:block;font-size:14px;color:var(--muted);margin-bottom:8px}.kpi span{font-size:18px}
 .card{background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:20px;padding:18px;margin-top:14px}
+.tech-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:16px}
+.tech-card{background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:18px;padding:14px;text-align:center}
+.tech-img{width:64px;height:64px;object-fit:contain;display:block;margin:0 auto 10px}
 .flow{font-family:Consolas,monospace;font-size:16px;white-space:pre-wrap;color:#dce7ff;line-height:1.42}
 .steps{display:grid;gap:10px}.step{display:flex;gap:12px;align-items:flex-start;padding:14px;border-radius:16px;background:rgba(255,255,255,.04);border:1px solid var(--line)}.num{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#07111f;font-weight:700;flex:0 0 auto}
-.tech-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}
-.tech-item{background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:18px;padding:16px 18px}
-.tech-item .tech-name{font-size:18px;font-weight:700;color:var(--accent);margin-bottom:6px}
-.tech-item .tech-desc{font-size:16px;color:var(--muted);line-height:1.45}
-.tech-item.full{grid-column:1/-1}
-.inversion-box{background:rgba(113,167,255,.07);border:1px solid rgba(113,167,255,.25);border-radius:20px;padding:18px;margin-top:14px}
 .footer{position:fixed;right:18px;bottom:14px;color:var(--muted);font-size:12px}
-hr{border:none;border-top:1px solid var(--line);margin:18px 0}
 @media (max-width:980px){section{grid-template-columns:1fr;min-height:auto}.kpi{grid-template-columns:1fr}h1{font-size:40px}.nav{justify-content:center}.tabs{justify-content:center}.tech-grid{grid-template-columns:1fr}}
 </style>
 </head>
@@ -83,25 +79,25 @@ hr{border:none;border-top:1px solid var(--line);margin:18px 0}
 
     <h3>Tecnologías usadas</h3>
     <div class="tech-grid">
-      <div class="tech-item">
-        <div class="tech-name">n8n</div>
-        <div class="tech-desc">Herramienta de automatización visual. Conecta todos los pasos del flujo sin escribir apenas código.</div>
+      <div class="tech-card">
+        <img src="IMG_O_PNG_DE_N8N" alt="n8n" class="tech-img">
+        <b>n8n</b>
       </div>
-      <div class="tech-item">
-        <div class="tech-name">Qdrant</div>
-        <div class="tech-desc">Base de datos vectorial. Guarda el conocimiento del centro y permite buscarlo por significado, no solo por palabra exacta.</div>
+      <div class="tech-card">
+        <img src="IMG_O_PNG_DE_QDRANT" alt="Qdrant" class="tech-img">
+        <b>Qdrant</b>
       </div>
-      <div class="tech-item">
-        <div class="tech-name">Ollama</div>
-        <div class="tech-desc">Motor local para ejecutar modelos de lenguaje (IA). Funciona en el propio ordenador del centro, sin enviar datos a internet.</div>
+      <div class="tech-card">
+        <img src="IMG_O_PNG_DE_OLLAMA" alt="Ollama" class="tech-img">
+        <b>Ollama</b>
       </div>
-      <div class="tech-item">
-        <div class="tech-name">FastAPI</div>
-        <div class="tech-desc">Framework de Python que expone el sistema como una API. Gestiona las consultas y coordina la búsqueda con Qdrant y la generación con Ollama.</div>
+      <div class="tech-card">
+        <img src="IMG_O_PNG_DE_FASTAPI" alt="FastAPI" class="tech-img">
+        <b>FastAPI</b>
       </div>
-      <div class="tech-item full">
-        <div class="tech-name">Python</div>
-        <div class="tech-desc">Lenguaje en el que está desarrollado todo el backend del sistema. Es el estándar en proyectos de IA y automatización.</div>
+      <div class="tech-card">
+        <img src="IMG_O_PNG_DE_PYTHON" alt="Python" class="tech-img">
+        <b>Python</b>
       </div>
     </div>
   </div>
@@ -180,7 +176,7 @@ Respuesta al usuario</div>
     <p>También podría incorporarse una capa de aprendizaje operativo, donde el sistema recuerde qué respuestas fueron útiles y cuáles no.</p>
     <div class="inversion-box">
       <h3 style="margin-top:0;color:var(--accent2)">El factor clave: inversión tecnológica</h3>
-      <p>A día de hoy, la inversión del centro en tecnología ha sido mínima (exceptuando los ordenadores). Esto condiciona qué se puede hacer con los recursos actuales.</p>
+      <p>A día de hoy, la inversión de la Junta de Castilla y León en tecnología ha sido mínima (exceptuando los ordenadores). Esto condiciona qué se puede hacer con los recursos actuales.</p>
       <p>Con una inversión en modelos de IA de pago o en servidores más potentes, el sistema podría dar respuestas mucho mejores, más rápidas y con mayor capacidad de razonamiento.</p>
     </div>
   </div>
